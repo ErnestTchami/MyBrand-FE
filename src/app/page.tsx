@@ -1,101 +1,143 @@
+"use client";
+import Navbar from "@/components/Nabar";
+import { Instagram, Facebook, Twitter, Linkedin, Github } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useRef } from "react";
+import Typed from "typed.js";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const typedRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: ["Developer", "Designer", "Photographer"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  return (
+    <div className="">
+      <div
+        className="h-[100vh] relative overflow-hidden w-full bg-cover bg-center object-cover"
+        style={{ backgroundImage: "url('/background-hero.webp')" }}
+      >
+        <Navbar />
+        <div className="w-full flex justify-center items-center">
+          <div className="items-center   h-[80vh] container flex  gap-5 justify-between pt-20">
+            <div className="flex flex-col gap-3">
+              <p className="text-6xl font-bold">
+                Iradukunda <span className="text-green-600">Ernest</span>
+              </p>
+              <p className="text-2xl mt-2 font-semibold">
+                I&#39;m <span ref={typedRef}></span>
+              </p>
+
+              <div className="w-full flex gap-3 items-center justify-start mt-5">
+                <Link
+                  href={"https://www.instagram.com/tchamierenest/?hl=en"}
+                  className="bg-zinc-700 hover:bg-zinc-600 h-10 w-10  rounded-full flex items-center justify-center"
+                >
+                  <Instagram />
+                </Link>
+                <Link
+                  href={"/"}
+                  className="bg-zinc-700 hover:bg-zinc-600 h-10 w-10 rounded-full flex items-center justify-center"
+                >
+                  <Facebook />
+                </Link>
+                <Link
+                  href={"https://x.com/Tchamianest4"}
+                  className="bg-zinc-700 hover:bg-zinc-600 h-10 w-10 rounded-full flex items-center justify-center "
+                >
+                  <Github />
+                </Link>
+                <Link
+                  href={"https://github.com/ErnestTchami"}
+                  className="bg-zinc-700 hover:bg-zinc-600 h-10 w-10 rounded-full flex items-center justify-center"
+                >
+                  <Twitter />
+                </Link>
+                <Link
+                  href={"https://www.linkedin.com/in/iradukunda-ernest/"}
+                  className="bg-zinc-700 hover:bg-zinc-600 h-10 w-10 rounded-full flex items-center justify-center"
+                >
+                  <Linkedin />
+                </Link>
+              </div>
+            </div>
+            <div>
+              <Image
+                className="absolute -top-7 -right-12 z-0"
+                src={"/profile2.webp"}
+                alt="profile Image"
+                width={800}
+                height={800}
+              />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      <div className="flex items-center justify-center ">
+        <div className="container flex-col  py-5 flex items-center justify-center">
+          <div className="text-3xl font-bold cursor-pointer mb-5">
+            Tchami Ernest
+          </div>
+          <p className="text-center text-[12px] px-10">
+            I am an experienced Full-stack Developer with a strong focus on
+            Node.js and React.js. Throughout my career, I have contributed to a
+            diverse range of innovative solutions. I am driven by a passion for
+            creating purpose-driven products and solving complex challenges
+            through the power of programming. My ultimate goal is to develop
+            tools and applications that not only meet technical objectives, but
+            also empower users and foster positive change in their lives and
+            communities. Additionally, I have implemented DevOps best practices,
+            continuous integration/continuous deployment (CI/CD), and cloud
+            infrastructure management to enhance efficiency and reliability.
+          </p>
+
+          <div className="w-full flex gap-3 items-center justify-center mt-5">
+            <Link
+              href={"https://www.instagram.com/tchamierenest/?hl=en"}
+              className="bg-green-500 hover:bg-green-600 h-7 w-7  rounded-full flex items-center justify-center text-black"
+            >
+              <Instagram className="h-3 w-3" />
+            </Link>
+            <Link
+              href={"/"}
+              className="bg-green-500 hover:bg-green-600 h-8 w-8 rounded-full flex items-center justify-center text-black"
+            >
+              <Facebook className="h-4 w-4" />
+            </Link>
+            <Link
+              href={"https://x.com/Tchamianest4"}
+              className="bg-green-500 hover:bg-green-600 h-10 w-10 rounded-full flex items-center justify-center text-black"
+            >
+              <Github />
+            </Link>
+            <Link
+              href={"https://github.com/ErnestTchami"}
+              className="bg-green-500 hover:bg-green-600 h-8 w-8 rounded-full flex items-center justify-center text-black"
+            >
+              <Twitter className="h-4 w-4" />
+            </Link>
+            <Link
+              href={"https://www.linkedin.com/in/iradukunda-ernest/"}
+              className="bg-green-500 hover:bg-green-600 h-7 w-7 rounded-full flex items-center justify-center text-black"
+            >
+              <Linkedin className="h-3 w-3" />
+            </Link>
+          </div>
+          <div className="w-full bg-zinc-600 h-[1px] mt-5"></div>
+        </div>
+      </div>
     </div>
   );
 }
