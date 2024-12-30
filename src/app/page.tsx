@@ -12,7 +12,11 @@ export default function Home() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Developer", "Designer", "Photographer"],
+      strings: [
+        "Passionate Software Developer",
+        "Software Developer",
+        "Tech Enthusiast",
+      ],
       typeSpeed: 50,
       backSpeed: 30,
       loop: true,
@@ -136,6 +140,21 @@ export default function Home() {
             </Link>
           </div>
           <div className="w-full bg-zinc-600 h-[1px] mt-5"></div>
+          <div className=" text-white py-5 text-center">
+            <p>
+              Designed by
+              <a
+                href="https://github.com/ErnestTchami"
+                className="text-green-500 ml-2 hover:underline"
+              >
+                ErnestTchami
+              </a>
+            </p>
+            <p className="mb-0 mt-5">
+              Copyright <strong>Ernest Tchami</strong> All Rights Reserved
+              &copy; <span id="current-year">{new Date().getFullYear()}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
