@@ -3,16 +3,11 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ activeLink }: { activeLink: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
-  };
-
-  const setActive = (link: string) => {
-    setActiveLink(link);
   };
 
   useEffect(() => {
@@ -72,22 +67,28 @@ const Navbar = () => {
             "Contact",
             "Dropdown",
           ].map((item) => (
-            <li
-              key={item}
-              onClick={() => setActive(item)}
-              className={`relative group cursor-pointer hover:text-green-500 transition-all duration-300 font-medium text-[14px] flex items-center justify-center ${
-                activeLink === item ? "text-green-500 h-full" : ""
+            <Link
+              href={`/${
+                item.toLowerCase() === "home" ? "/" : item.toLowerCase()
               }`}
+              key={item}
             >
-              {item}
-              <div
-                className={`absolute left-0  ${
-                  activeLink === item
-                    ? "-bottom-2 h-[2.5px] w-1/2 bg-green-500"
-                    : "-bottom-2 h-[2.5px] w-0 bg-green-500"
-                } transition-all duration-300 group-hover:w-2/3`}
-              ></div>
-            </li>
+              <li
+                key={item}
+                className={`relative group cursor-pointer hover:text-green-500 transition-all duration-300 font-medium text-[14px] flex items-center justify-center ${
+                  activeLink === item ? "text-green-500 h-full" : ""
+                }`}
+              >
+                {item}
+                <div
+                  className={`absolute left-0  ${
+                    activeLink === item
+                      ? "-bottom-2 h-[2.5px] w-1/2 bg-green-500"
+                      : "-bottom-2 h-[2.5px] w-0 bg-green-500"
+                  } transition-all duration-300 group-hover:w-2/3`}
+                ></div>
+              </li>
+            </Link>
           ))}
         </ul>
       </nav>
