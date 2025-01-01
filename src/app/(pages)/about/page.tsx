@@ -5,8 +5,26 @@ import React from "react";
 import GlobarHero from "@/components/GlobarHero";
 import StatisticsCard from "@/components/aboutPage/StatisticsCard";
 import { Smile, Headset, NotebookText, Users } from "lucide-react";
+import SkillsSection from "@/components/aboutPage/SkillsSection";
+import HeaderSeparator from "@/components/aboutPage/HeaderSeparator";
+import TestimonialCard from "@/components/aboutPage/TestimonialCard";
+import IconCard from "@/components/aboutPage/FeatCard";
+import { programmingItems } from "@/components/aboutPage/constant";
 
 function page() {
+  const testimonials = [
+    { imageUrl: "/petit.jpg", name: "Saul Goodman", position: "CEO & Founder" },
+    {
+      imageUrl: "/me.jpg",
+      name: "Iradukunda Ernest",
+      position: "Back-end developer",
+    },
+    {
+      imageUrl: "/wd.jpeg",
+      name: "Wiclef DUSENGE",
+      position: " Cofounder /wdgraphix & Chromatikk",
+    },
+  ];
   return (
     <div className="">
       <Navbar activeLink="About" />
@@ -51,6 +69,42 @@ function page() {
 
           <div data-aos="fade-up" data-aos-delay="600">
             <StatisticsCard icon={Users} label="Collaborators" number={20} />
+          </div>
+        </div>
+        <div className="my-9 w-full container" data-aos="fade-up">
+          <HeaderSeparator Header="My skills" smallHeader="skills" />
+          <SkillsSection />
+        </div>
+        <div className="my-9 w-full container" data-aos="fade-up">
+          <HeaderSeparator
+            Header="I'm interested in"
+            separatorPosition="absolute bottom-2 left-24"
+            smallHeader="Features"
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {programmingItems.map((item, index) => (
+              <IconCard key={index} text={item.text} icon={item.icon} />
+            ))}
+          </div>
+        </div>
+        <div className="my-14 mb-20 w-full  container" data-aos="fade-up">
+          <HeaderSeparator
+            Header="Check my Testimonials"
+            separatorPosition="absolute bottom-2 left-32"
+            smallHeader="Testimonials"
+          />
+
+          <div className="flex mb-20 gap-4 justify-center items-center ">
+            {testimonials.map((item, index) => (
+              <TestimonialCard
+                key={index}
+                text="Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper."
+                name={item.name}
+                position={item.position}
+                imageUrl={item.imageUrl}
+              />
+            ))}
           </div>
         </div>
       </div>
