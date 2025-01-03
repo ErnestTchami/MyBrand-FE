@@ -6,7 +6,9 @@ function page() {
   return (
     <div>
       <Navbar activeLink="Resume" />
-      <Resume />
+      <div className="">
+        <Resume />
+      </div>
     </div>
   );
 }
