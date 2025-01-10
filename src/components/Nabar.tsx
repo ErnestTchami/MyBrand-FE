@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
+import { ScrollProgress } from "./ScrollProgressProps";
 
 const Navbar = ({ activeLink }: { activeLink: string }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,6 +92,7 @@ const Navbar = ({ activeLink }: { activeLink: string }) => {
             </Link>
           ))}
         </ul>
+        <ScrollProgress className="top-[80px] bg-white" />
       </nav>
     </div>
   );
