@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/components/Nabar";
+import Particles from "@/components/Particles";
 import { Instagram, Facebook, Twitter, Linkedin, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,6 +36,13 @@ export default function Home() {
       >
         <Navbar activeLink="Home" />
         <div className="w-full flex justify-center items-center">
+          <Particles
+            className="absolute inset-0 z-0"
+            quantity={150}
+            ease={70}
+            color={"#ffffff"}
+            refresh
+          />
           <div className="items-center   h-[80vh] container flex  gap-5 justify-between pt-20">
             <div className="flex flex-col gap-3">
               <p className="text-6xl font-bold">
