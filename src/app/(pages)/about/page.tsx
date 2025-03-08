@@ -29,7 +29,7 @@ function page() {
     <div className="">
       <Navbar activeLink="About" />
 
-      <div className="pt-20 w-full flex-col flex items-center justify-center bg-black py-2 ">
+      <div className="pt-20 w-full flex-col flex items-center justify-center bg-black py-2">
         <GlobarHero
           BreadcrumbName="about"
           pageName="About"
@@ -43,11 +43,12 @@ function page() {
           that empower businesses and individuals. Welcome to my portfolio,
           where passion meets purpose!"
         />
-        <div>
+
+        <div className="w-full">
           <ProfileCard />
         </div>
 
-        <div className="flex gap-4 py-10 my-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 sm:px-6 py-10 my-5 w-full max-w-7xl">
           <div data-aos="fade-up">
             <StatisticsCard icon={Smile} label="Happy client" number={200} />
           </div>
@@ -58,7 +59,6 @@ function page() {
               number={60}
             />
           </div>
-
           <div data-aos="fade-up" data-aos-delay="400">
             <StatisticsCard
               icon={Headset}
@@ -66,36 +66,41 @@ function page() {
               number={3000}
             />
           </div>
-
           <div data-aos="fade-up" data-aos-delay="600">
             <StatisticsCard icon={Users} label="Collaborators" number={20} />
           </div>
         </div>
-        <div className="my-9 w-full container" data-aos="fade-up">
+
+        <div className="my-9 w-full container px-4 sm:px-6" data-aos="fade-up">
           <HeaderSeparator Header="My skills" smallHeader="skills" />
           <SkillsSection />
         </div>
-        <div className="my-9 w-full container" data-aos="fade-up">
+
+        <div className="my-9 w-full container px-4 sm:px-6" data-aos="fade-up">
           <HeaderSeparator
             Header="I'm interested in"
-            separatorPosition="absolute bottom-2 left-24"
+            separatorPosition="absolute bottom-2 left-1/2 transform -translate-x-1/2 sm:left-24 sm:transform-none"
             smallHeader="Features"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {programmingItems.map((item, index) => (
               <IconCard key={index} text={item.text} icon={item.icon} />
             ))}
           </div>
         </div>
-        <div className="my-14 mb-20 w-full  container" data-aos="fade-up">
+
+        <div
+          className="my-14 mb-20 w-full container px-4 sm:px-6"
+          data-aos="fade-up"
+        >
           <HeaderSeparator
             Header="Check my Testimonials"
-            separatorPosition="absolute bottom-2 left-32"
+            separatorPosition="absolute bottom-2 left-1/2 transform -translate-x-1/2 sm:left-32 sm:transform-none"
             smallHeader="Testimonials"
           />
 
-          <div className="flex mb-20 gap-4 justify-center items-center ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {testimonials.map((item, index) => (
               <TestimonialCard
                 key={index}
