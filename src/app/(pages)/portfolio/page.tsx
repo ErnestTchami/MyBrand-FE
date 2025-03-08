@@ -13,7 +13,6 @@ interface PortfolioItem {
   rating: number;
   category: string;
   demoLink: string;
-  type: "Free" | "Premium";
   price?: number;
   description: string;
 }
@@ -25,13 +24,12 @@ function Page() {
   const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      title: "Premium React Portfolio Website",
+      title: "React Portfolio Website",
       image: "/portifolio.png",
       previewImage: "/portifolio.png",
       rating: 4,
       category: "Web Development",
       demoLink: "https://my-brand-fe.vercel.app/portfolio",
-      type: "Free",
       description:
         "A modern and responsive portfolio website template built with React. Perfect for showcasing your work and professional experience.",
     },
@@ -87,7 +85,7 @@ function Page() {
                     </div>
                   </div>
 
-                  <div className="absolute top-4 right-4 z-10">
+                  {/* <div className="absolute top-4 right-4 z-10">
                     <span
                       className={`px-3 py-1 rounded-full text-sm font-medium ${
                         item.type === "Premium"
@@ -97,7 +95,7 @@ function Page() {
                     >
                       {item.type}
                     </span>
-                  </div>
+                  </div> */}
 
                   <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-zinc-900 to-transparent"></div>
                 </div>
@@ -109,11 +107,11 @@ function Page() {
 
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex">{renderStars(item.rating)}</div>
-                    {item.type === "Premium" && (
+                    {/* {item.type === "Premium" && (
                       <span className="text-white font-bold">
                         ₹{item.price}
                       </span>
-                    )}
+                    )} */}
                   </div>
 
                   <div className="flex justify-between items-center">
@@ -198,7 +196,7 @@ function Page() {
 
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <span
+                      {/* <span
                         className={`px-3 py-1 rounded-full text-sm font-medium ${
                           selectedItem.type === "Premium"
                             ? "bg-orange-500"
@@ -206,7 +204,7 @@ function Page() {
                         }`}
                       >
                         {selectedItem.type}
-                      </span>
+                      </span> */}
                       <span className="text-gray-400">
                         {selectedItem.category}
                       </span>
